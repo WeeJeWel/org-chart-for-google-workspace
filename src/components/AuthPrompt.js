@@ -1,0 +1,5 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Paper, Typography, Button, Stack, Alert } from '@mui/material';
+import LockIcon from '@mui/icons-material/Lock';
+const AuthPrompt = ({ onSignIn, isReady, error }) => (_jsx(Paper, { elevation: 0, sx: { p: 5, textAlign: 'center' }, children: _jsxs(Stack, { spacing: 3, alignItems: "center", children: [_jsx(LockIcon, { color: "primary", sx: { fontSize: 48 } }), _jsx(Typography, { variant: "h5", fontWeight: 500, color: "text.primary", children: "Connect your Google Workspace directory" }), _jsx(Typography, { color: "text.secondary", maxWidth: 480, children: "Sign in with a Google Workspace admin account to fetch and edit your live organization chart using the Directory API. Drag-and-drop moves update each person's manager instantly while all data stays inside this browser tab." }), error && _jsx(Alert, { severity: "error", children: error }), _jsx(Button, { variant: "contained", size: "large", onClick: onSignIn, disabled: !isReady, children: "Continue with Google" })] }) }));
+export default AuthPrompt;
