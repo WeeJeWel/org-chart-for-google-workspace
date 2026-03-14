@@ -1,13 +1,14 @@
-import { Paper, Typography, Button, Stack, Alert } from '@mui/material';
+import { Paper, Typography, Button, Stack, Alert, Divider } from '@mui/material';
 import LockIcon from '@mui/icons-material/Lock';
 
 interface Props {
   onSignIn: () => void;
   isReady: boolean;
   error?: string;
+  children?: React.ReactNode;
 }
 
-const AuthPrompt = ({ onSignIn, isReady, error }: Props) => (
+const AuthPrompt = ({ onSignIn, isReady, error, children }: Props) => (
   <Paper elevation={0} sx={{ p: 5, textAlign: 'center' }}>
     <Stack spacing={3} alignItems="center">
       <LockIcon color="primary" sx={{ fontSize: 48 }} />
@@ -27,6 +28,12 @@ const AuthPrompt = ({ onSignIn, isReady, error }: Props) => (
       >
         Continue with Google
       </Button>
+      {children && (
+        <Stack spacing={2} width="100%">
+          <Divider />
+          {children}
+        </Stack>
+      )}
     </Stack>
   </Paper>
 );

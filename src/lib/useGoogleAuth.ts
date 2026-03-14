@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { GOOGLE_CLIENT_ID } from '../config';
 
 type AuthError = string | undefined;
 
@@ -75,9 +76,9 @@ export const useGoogleAuth = (scope: string): GoogleAuthState => {
     if (tokenClient) return;
     if (!window.google?.accounts?.oauth2) return;
 
-    const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+    const clientId = GOOGLE_CLIENT_ID;
     if (!clientId) {
-      setError('Missing VITE_GOOGLE_CLIENT_ID. Update your .env file.');
+      setError('Missing GOOGLE_CLIENT_ID. Update src/config.ts.');
       return;
     }
 

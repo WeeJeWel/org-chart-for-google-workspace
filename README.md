@@ -20,12 +20,7 @@ A front-end-only React + TypeScript + Material UI experience that mirrors Google
    npm install
    ```
 2. **Create an OAuth 2.0 Web Client** in Google Cloud Console and enable the Admin SDK > Directory API for your Workspace organization.
-3. **Configure environment variables**
-   ```bash
-   cp .env.example .env
-   # replace with the client ID created above
-   VITE_GOOGLE_CLIENT_ID=your-client-id.apps.googleusercontent.com
-   ```
+3. **Update the Google OAuth client ID** inside `src/config.ts` (replace the placeholder with your Workspace OAuth client).
 4. **Run the dev server**
    ```bash
    npm run dev

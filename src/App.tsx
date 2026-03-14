@@ -16,6 +16,7 @@ import { QueryClient, QueryClientProvider, useMutation, useQueryClient } from '@
 import AuthPrompt from './components/AuthPrompt';
 import OrgChart from './components/OrgChart';
 import PersonDetails from './components/PersonDetails';
+import SignedOutPreview from './components/SignedOutPreview';
 import AppHeader from './components/AppHeader';
 import { useGoogleAuth } from './lib/useGoogleAuth';
 import { useDirectoryQuery } from './lib/useDirectoryQuery';
@@ -316,7 +317,7 @@ const AppContent = () => {
   );
 
   return (
-    <Box>
+    <Box minHeight="100vh" display="flex" flexDirection="column">
       <AppHeader
         isSignedIn={Boolean(accessToken)}
         onSignIn={signIn}
@@ -326,8 +327,8 @@ const AppContent = () => {
         }}
         activeAdmin={activeAdminForHeader}
       />
-      <Container maxWidth="lg" sx={{ py: 6 }}>
-        <Stack spacing={3}>
+      <Container maxWidth="lg" sx={{ py: 6, flexGrow: 1 }}>
+        <Stack spacing={3} flexGrow={1} minHeight="100%">
           {authError && <Alert severity="error">{authError}</Alert>}
           {updateManagerMutation.isError && (
             <Alert severity="error">
@@ -338,7 +339,9 @@ const AppContent = () => {
             <Alert severity="error">{(directoryQuery.error as Error)?.message}</Alert>
           )}
           {!accessToken && (
-            <AuthPrompt onSignIn={signIn} isReady={isReady} error={authError} />
+            <AuthPrompt onSignIn={signIn} isReady={isReady} error={authError}>
+              <SignedOutPreview />
+            </AuthPrompt>
           )}
           {accessToken && !chartData && directoryQuery.isLoading && (
             <Stack alignItems="center" py={10}>
@@ -387,7 +390,7 @@ const AppContent = () => {
           )}
         </Stack>
       </Container>
-      <Box component="footer" sx={{ py: 3 }}>
+      <Box component="footer" sx={{ py: 3, mt: 'auto' }}>
         <Container maxWidth="lg">
           <Stack alignItems="center">
             <Typography variant="caption" color="text.disabled">
