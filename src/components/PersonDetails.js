@@ -5,7 +5,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import PhoneIcon from '@mui/icons-material/Phone';
-const FieldRow = ({ icon, label, value }) => (_jsxs(Stack, { direction: "row", spacing: 1.5, alignItems: "center", children: [icon, _jsxs(Stack, { children: [_jsx(Typography, { variant: "caption", color: "text.secondary", children: label }), _jsx(Typography, { variant: "body2", color: "text.primary", children: value ?? '—' })] })] }));
+const FieldRow = ({ icon, label, value }) => (_jsxs(Stack, { direction: "row", spacing: 1.5, alignItems: "flex-start", width: "100%", children: [icon, _jsxs(Stack, { alignItems: "flex-start", children: [_jsx(Typography, { variant: "caption", color: "text.secondary", children: label }), _jsx(Typography, { variant: "body2", color: "text.primary", children: value ?? '—' })] })] }));
 const PersonDetails = ({ person, manager, onFocusManager, onUpdateTitle, pendingTitle, isUpdatingTitle }) => {
     if (!person) {
         return (_jsx(Paper, { sx: { p: 3 }, children: _jsx(Typography, { color: "text.secondary", children: "Select someone from the chart to view their profile." }) }));

@@ -16,9 +16,9 @@ interface Props {
 }
 
 const FieldRow = ({ icon, label, value }: { icon: ReactNode; label: string; value?: ReactNode }) => (
-  <Stack direction="row" spacing={1.5} alignItems="center">
+  <Stack direction="row" spacing={1.5} alignItems="flex-start" width="100%">
     {icon}
-    <Stack>
+    <Stack alignItems="flex-start">
       <Typography variant="caption" color="text.secondary">
         {label}
       </Typography>

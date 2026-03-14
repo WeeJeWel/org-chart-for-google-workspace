@@ -327,8 +327,8 @@ const AppContent = () => {
         }}
         activeAdmin={activeAdminForHeader}
       />
-      <Container maxWidth="lg" sx={{ py: 6, flexGrow: 1 }}>
-        <Stack spacing={3} flexGrow={1} minHeight="100%">
+      <Container maxWidth="lg" sx={{ py: 6, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+        <Stack spacing={3} flexGrow={1}>
           {authError && <Alert severity="error">{authError}</Alert>}
           {updateManagerMutation.isError && (
             <Alert severity="error">

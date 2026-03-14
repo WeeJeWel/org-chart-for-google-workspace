@@ -73,11 +73,7 @@ const AppHeader = ({ isSignedIn, onSignIn, onSignOut, activeAdmin }: Props) => {
               </MenuItem>
             </Menu>
           </>
-        ) : (
-          <Button variant="contained" color="primary" onClick={onSignIn}>
-            Sign in
-          </Button>
-        )}
+        ) : null}
       </Toolbar>
     </AppBar>
   );

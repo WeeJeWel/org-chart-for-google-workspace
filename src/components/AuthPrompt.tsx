@@ -1,4 +1,5 @@
-import { Paper, Typography, Button, Stack, Alert, Divider } from '@mui/material';
+import { Paper, Typography, Button, Stack, Alert, Divider, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import LockIcon from '@mui/icons-material/Lock';
 
 interface Props {
@@ -13,12 +14,22 @@ const AuthPrompt = ({ onSignIn, isReady, error, children }: Props) => (
     <Stack spacing={3} alignItems="center">
       <LockIcon color="primary" sx={{ fontSize: 48 }} />
       <Typography variant="h5" fontWeight={500} color="text.primary">
-        Connect your Google Workspace directory
+        Visualize your Google Workspace's Directory
       </Typography>
-      <Typography color="text.secondary" maxWidth={480}>
-        Sign in with a Google Workspace admin account to fetch and edit your live organization chart using the Directory API.
-        Drag-and-drop moves update each person's manager instantly while all data stays inside this browser tab.
-      </Typography>
+      <List sx={{ width: '100%', maxWidth: 480, textAlign: 'left' }}>
+        {[
+          'Show your organisation as a tree structure.',
+          "Drag & drop users to organize who's their manager.",
+          "Everything happens in your browser. And it's all free."
+        ].map((text) => (
+          <ListItem key={text} disableGutters>
+            <ListItemIcon sx={{ minWidth: 36 }}>
+              <CheckCircleIcon sx={{ color: '#34a853', fontSize: 22 }} />
+            </ListItemIcon>
+            <ListItemText primaryTypographyProps={{ color: 'text.secondary' }} primary={text} />
+          </ListItem>
+        ))}
+      </List>
       {error && <Alert severity="error">{error}</Alert>}
       <Button
         variant="contained"
@@ -26,7 +37,7 @@ const AuthPrompt = ({ onSignIn, isReady, error, children }: Props) => (
         onClick={onSignIn}
         disabled={!isReady}
       >
-        Continue with Google
+        Sign in with Google
       </Button>
       {children && (
         <Stack spacing={2} width="100%">

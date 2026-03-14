@@ -4,6 +4,7 @@ const firstNames = ['Ava', 'Milo', 'Leo', 'Nia', 'Rory', 'Sage', 'Theo', 'Uma', 
 const lastNames = ['Rivera', 'Chen', 'Holt', 'Iqbal', 'Jansen', 'Kim', 'Lopez', 'Nguyen', 'Patel', 'Singh'];
 const titles = ['CEO', 'Head of Product', 'Engineering Lead', 'Design Lead', 'Operations Lead', 'Product Manager', 'Software Engineer', 'UX Designer', 'Customer Success'];
 const departments = ['Executive', 'Product', 'Engineering', 'Design', 'Operations', 'Success'];
+const phoneNumbers = ['+1 (312) 555-0199', '+1 (646) 555-0112', '+1 (415) 555-0147', '+44 20 7946 0958', '+33 1 86 65 32 10'];
 
 const randomItem = <T,>(items: T[]): T => items[Math.floor(Math.random() * items.length)];
 const randomAvatar = () => `https://i.pravatar.cc/96?img=${Math.floor(Math.random() * 70) + 1}`;
@@ -22,7 +23,8 @@ export const createSampleDirectory = (): DirectoryPerson[] => {
     displayName: `${rootFirst} ${rootLast}`,
     jobTitle: 'CEO',
     department: 'Executive',
-    photoUrl: randomAvatar()
+    photoUrl: randomAvatar(),
+    phone: randomItem(phoneNumbers)
   };
   people.push(root);
 
@@ -39,7 +41,8 @@ export const createSampleDirectory = (): DirectoryPerson[] => {
       jobTitle: randomItem(titles.slice(1, 5)),
       department,
       managerEmail: rootEmail,
-      photoUrl: randomAvatar()
+      photoUrl: randomAvatar(),
+      phone: randomItem(phoneNumbers)
     };
     people.push(lead);
 
@@ -53,7 +56,8 @@ export const createSampleDirectory = (): DirectoryPerson[] => {
         jobTitle: randomItem(titles.slice(5)),
         department,
         managerEmail: leadEmail,
-        photoUrl: randomAvatar()
+        photoUrl: randomAvatar(),
+        phone: randomItem(phoneNumbers)
       };
       people.push(member);
     }
