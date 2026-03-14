@@ -1,5 +1,5 @@
 import { Paper, Typography, Button, Stack, Alert, Divider, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import VerifiedIcon from '@mui/icons-material/Verified';
 import LockIcon from '@mui/icons-material/Lock';
 
 interface Props {
@@ -24,7 +24,7 @@ const AuthPrompt = ({ onSignIn, isReady, error, children }: Props) => (
         ].map((text) => (
           <ListItem key={text} disableGutters>
             <ListItemIcon sx={{ minWidth: 36 }}>
-              <CheckCircleIcon sx={{ color: '#34a853', fontSize: 22 }} />
+              <VerifiedIcon sx={{ color: '#34a853', fontSize: 24 }} />
             </ListItemIcon>
             <ListItemText primaryTypographyProps={{ color: 'text.secondary' }} primary={text} />
           </ListItem>
